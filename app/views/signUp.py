@@ -14,7 +14,7 @@ def save(request):
         pwd = request.POST.get('password')
         pwd2 = request.POST.get('password2')
         if(pwd != pwd2):
-            messages.error(request,'Password incorrect')
+            return messages.error(request,'Password incorrect')
         form = signUp_form(request.POST)
         if form.is_valid():
             form.save()
