@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from app.models import User
 
-class CustomerForm(ModelForm):
+class SignUpForm(ModelForm):
     
     class Meta:
         model = User

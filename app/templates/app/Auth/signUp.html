@@ -24,24 +24,21 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
                   
-                  <form class="row g-3 needs-validation" novalidate action="" method="post">
+                  <form class="row g-3 needs-validation" novalidate action="{% url 'save_user' %}" method="post">
                     {% csrf_token %}
                     <div class="col-6">
                       <label for="yourName" class="form-label">First Name</label>
                       <input type="text" name="first_name" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Please, enter your first name!</div>
                     </div>
 
                     <div class="col-6">
                       <label for="yourName" class="form-label">Last Name</label>
                       <input type="text" name="last_name" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Please, enter your last name!</div>
                     </div>
 
                     <div class="col-6">
                       <label for="yourEmail" class="form-label">Email</label>
                       <input type="email" name="email" class="form-control" id="yourEmail" required>
-                      <div class="invalid-feedback">Please enter a valid Email adddress!</div>
                     </div>
 
                     <div class="col-6">
@@ -49,20 +46,17 @@
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                         <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please choose a username.</div>
                       </div>
                     </div>
 
                     <div class="col-6">
                       <label for="yourPassword" class="form-label">Password</label>
                       <input type="password" name="password" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
                     <div class="col-6">
                       <label for="yourPassword" class="form-label">Password Confirmation</label>
                       <input type="password" name="password2" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
                     <div class="col-12">
