@@ -1,0 +1,40 @@
+{%extends 'app/layouts/default.html'%}
+{%block content%}
+<main id="main" class="main">
+    <section class="section dashboard">
+        <div class="row">
+    
+            <div class="col-12">
+        
+              <div class="card-body">
+                <h5 class="card-title">Categorie <span>| Today</span></h5>
+        <button>ajouter</button>
+                <table class="table table-borderless datatable">
+                  <thead>
+                    <tr>
+                      <th scope="col">id</th>
+                      <th scope="col">designation</th>
+                      <th scope="col">code</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row"><a href="#">#2457</a></th>
+                      <td>Football</td>
+                      <td><a href="#" class="text-primary">fb</a></td>
+                      <td>
+                          <span class="badge bg-success">delete</span>
+                          <span class="badge bg-success">edit</span>
+                    </td>
+                    </tr>
+                  </tbody>
+                </table>
+        
+              </div>
+        
+            </div>
+        </div>
+    </section><!-- End Recent Sales -->
+</main>
+{%endblock%}
