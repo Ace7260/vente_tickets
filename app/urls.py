@@ -1,5 +1,7 @@
 from django.urls import path
-from .views import home
+from app.views import home,sport
 urlpatterns = [
     path('',home.index,name='home_index' ),
+    # urls for sport
+    path('sports',sport.index,name='sport_index'),
 ]
