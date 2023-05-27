@@ -7,9 +7,10 @@
   <div class="col-xxl-12 col-md-4 d-flex justify-content-center w-100 p-3 flex-wrap gap-3">
     <select class="form-select" aria-label="Default select example">
       <option selected>Choose Sport</option>
-      <option value="1">Football</option>
-      <option value="2">Basketball</option>
-      <option value="3">Handball</option>
+      {% for category in categories%} 
+      <option value="{{category.id}}">{{category.description}}</option>
+      {% endfor %}
+    
     </select>
   </div>
   <div class="col-xxl-12 col-md-4 d-flex justify-content-center w-100 p-3 flex-wrap gap-3">
