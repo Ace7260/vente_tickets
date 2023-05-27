@@ -10,7 +10,7 @@
 
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#components-nav1" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-menu-button-wide"></i><span>Sports</span><i class="bi bi-chevron-down ms-auto"></i>
+        <i class="bi bi-trophy-fill"></i><span>Sports</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="components-nav1" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
@@ -28,11 +28,11 @@
     
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-menu-button-wide"></i><span>Tickets</span><i class="bi bi-chevron-down ms-auto"></i>
+        <i class="bi bi-ticket"></i><span>Tickets</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="components-alerts.html">
+          <a href="{% url 'ticket_index' %}">
             <i class="bi bi-circle"></i><span>Sell</span>
           </a>
         </li>
@@ -46,7 +46,7 @@
   
     <li class="nav-item">
       <a class="nav-link collapsed" href="users-profile.html">
-        <i class="bi bi-ticket"></i>
+        <i class="bi bi-cart"></i>
         <span>Orders</span>
       </a>
     </li>
