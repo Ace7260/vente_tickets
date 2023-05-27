@@ -1,30 +1,35 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate
+from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib import messages
 import jwt
 
-token_key = "gfggsfg5e54hg5rt4rvwegrh4rg456465e4e56g4rer5g4e56v46e4v5er4gr4v56v1er56g56g56e1cc56156e1g5r1g5e1c51v51rg51r561r5v1e56rg15rt1g56e1v651v56165165b15v1d56b1rb"
+token_key = "JJhjhjhiidigdigigJHUGUGUHIjiIJhijhjihdjighjidhjsshjdf4df56b456dsdnvjbddjdb1d651b5dbvnjshgHVHHjidgd4df54dnhjBHBhjbjkndkn"
 
 
 
 def loginUser(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        print(username, password, user)
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request,username=username, password=password)
         if user is not None:
-            user_data = User.objects.get(username=username)
+            print("USER_DATA : ",user)
+            # user_data = User.objects.get(username=username)
+            login(request, user)
             token = jwt.encode({'username': username}, token_key, algorithm='HS256')
             response = HttpResponse(
                 render(
-                request, 
-                'app/home/index.html')
+                    request, 
+                    'app/home/index.html'
+                )
             )
             response.set_cookie('jwt', token)
+            print("TOKEN : ", token)
             return response
         else:
+            print("Error de connexion")
             messages.error(request, 'Les informations fournies ne sont pas correctes.')
             return redirect('/login') 
