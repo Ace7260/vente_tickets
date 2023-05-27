@@ -4,9 +4,18 @@
 
 {% block content %}
 <main id="main" class="main">
-    <div class="col-xxl-12 col-md-4 d-flex justify-content-center w-100 p-3 flex-wrap gap-3">
+  <div class="col-xxl-12 col-md-4 d-flex justify-content-center w-100 p-3 flex-wrap gap-3">
+    <select class="form-select" aria-label="Default select example">
+      <option selected>Choose Sport</option>
+      {% for category in categories%} 
+      <option value="{{category.id}}">{{category.description}}</option>
+      {% endfor %}
+    
+    </select>
+  </div>
+  <div class="col-xxl-12 col-md-4 d-flex justify-content-center w-100 p-3 flex-wrap gap-3">
+  
         <!-- debut -->
-        
         <!-- <div class="col-xxl-4 col-md-4"> -->
             {% for ticket in tickets  %}
             <div class="card info-card sales-card">
@@ -32,8 +41,9 @@
                 </div>
                <br>    
                <div>
-              <button class="add-btn update-panier btn btn-success" data-ticket={{ticket.pk}} data-action="add">
-                  Ajouter au panier</button>
+                 <div id="paypal-payment-button"></div>
+             <button class="btn btn-outline-secondary add-btn update-panier" data-produit={{ticket.pk}} data-action="add">
+                  Acheter</button>
               </div>
             </div>
           </div>
