@@ -10,61 +10,85 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
         <li class="breadcrumb-item">History</li>
-        <li class="breadcrumb-item active">Purchases</li>
+        <li class="breadcrumb-item active">Purchases & Sellings</li>
       </ol>
     </nav>
   <div class="col-xxl-12 col-md-4 d-flex justify-content-center w-100 p-3 flex-wrap gap-3">
      <!-- General Form Elements -->
      <form>
         
-          <!-- Top Selling -->
-          <div class="col-12">
-            <div class="card top-selling overflow-auto">
+      <!-- Top Purchases -->
+      <div class="col-12">
+        <div class="card top-selling overflow-auto">
 
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                  </li>
+          <div class="card-body pb-0">
+            <h5 class="card-title">History of purchases <span></span></h5>
 
-                  <li><a class="dropdown-item" href="#">Today</a></li>
-                  <li><a class="dropdown-item" href="#">This Month</a></li>
-                  <li><a class="dropdown-item" href="#">This Year</a></li>
-                </ul>
-              </div>
+            <table class="table table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">Category</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Place</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  
+                  {% for i in tickets %}
+                  <tr>
+                      <td>{{i.categorie}}</td>
+                      <td>{{i.price}}</td>
+                      <td>{{i.date_ajout}}</td>
+                      <td>{{i.place}}</td>
+                  </tr>
+                  {% endfor %}
+                </tr>
+              </tbody>
+            </table>
 
-              <div class="card-body pb-0">
-                <h5 class="card-title">History of purchases <span>| Today</span></h5>
+          </div>
 
-                <table class="table table-borderless">
-                  <thead>
-                    <tr>
-                      <th scope="col">Category</th>
-                      <th scope="col">Price</th>
-                      <th scope="col">Date</th>
-                      <th scope="col">Place</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      
-                      {% for i in tickets %}
-                      <tr>
-                          <td>{{i.categorie}}</td>
-                          <td>{{i.price}}</td>
-                          <td>{{i.date_ajout}}</td>
-                          <td>{{i.place}}</td>
-                      </tr>
-                      {% endfor %}
-                    </tr>
-                  </tbody>
-                </table>
+        </div>
+      </div><!-- End Top Purchases -->
+        
+      <!-- Top Selling -->
+      <div class="col-12">
+        <div class="card top-selling overflow-auto">
 
-              </div>
+          <div class="card-body pb-0">
+            <h5 class="card-title">History of Selllings <span></span></h5>
 
-            </div>
-          </div><!-- End Top Selling -->
+            <table class="table table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">Category</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Place</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  
+                  {% for i in tickets %}
+                  <tr>
+                      <td>{{i.categorie}}</td>
+                      <td>{{i.price}}</td>
+                      <td>{{i.date_ajout}}</td>
+                      <td>{{i.place}}</td>
+                  </tr>
+                  {% endfor %}
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+
+        </div>
+      </div><!-- End Top Selling -->
+
      </form><!-- End General Form Elements -->
   </div>
 </main> 
