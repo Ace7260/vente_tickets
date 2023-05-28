@@ -1,0 +1,43 @@
+{%extends 'app/layouts/default.html'%}
+{%block content%}
+<main id="main" class="main">
+    <section class="section dashboard">
+        <div class="row">
+    
+            <div class="col-12">
+        
+              <div class="card-body">
+                <h5 class="card-title">Categorie <span>| List</span></h5>
+                <a class="btn btn-primary" href="{% url 'add_category' %}">Add a categorie</a>
+                <table class="table table-borderless datatable">
+                  <thead>
+                    <tr>
+                      <th scope="col">code</th>
+                      <th scope="col">description</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for i in categories %}
+                      <tr>
+                        <td>{{i.code}}</td>
+                        <td>{{i.description}}</td>
+                        
+                        <td>
+                          <a class="btn btn-sm btn-info" href="{% url 'update_category' i.id %}">Update</a>
+                          <a class="btn btn-sm btn-danger" href="{% url 'delete_category' i.id %}">Delete</a>
+                        </td>
+
+                      </tr>
+                      {% endfor %}
+
+                  </tbody>
+                </table>
+        
+              </div>
+        
+            </div>
+        </div>
+    </section><!-- End Recent Sales -->
+</main>
+{%endblock%}
