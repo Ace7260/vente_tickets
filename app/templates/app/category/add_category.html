@@ -1,0 +1,26 @@
+{%extends 'app/layouts/default.html'%}
+{%block content%}
+<main id="main" class="main">
+    <form class="section dashboard" action="" method="POST">
+      <div class="col-12">
+        
+        <div class="card-body">
+          <h5 class="card-title">Category <span>| Add Category</span></h5>
+          <form>
+            
+          {% csrf_token %}
+          {{form}}
+
+          <div class="form-group">
+            <input type="simple" class="form-control" id="exampleFormControlInput1" placeholder="Code">
+          </div>
+          </br>
+              <div class="form-group">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Description"></textarea>
+              </div>
+            </form> </br>
+            <input type="Submit" name="Submit">
+      </div>
+    </form><!-- End Recent Sales -->
+</main>
+{%endblock%}
