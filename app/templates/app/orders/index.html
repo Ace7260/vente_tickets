@@ -49,6 +49,14 @@
                   <tbody>
                     <tr>
                       
+                      {% for i in tickets %}
+                      <tr>
+                          <td>{{i.categorie}}</td>
+                          <td>{{i.price}}</td>
+                          <td>{{i.date_ajout}}</td>
+                          <td>{{i.place}}</td>
+                      </tr>
+                      {% endfor %}
                     </tr>
                   </tbody>
                 </table>
