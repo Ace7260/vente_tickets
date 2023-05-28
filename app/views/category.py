@@ -3,6 +3,8 @@ from django.http import request
 from app.models.category import Category
 from app.forms.categoryForm import CategoryForm
 
+
+
 def index(request):
   categories= Category.objects.all()
   return render(request,'app/category/index.html',{'categories':categories})
@@ -30,3 +32,10 @@ def update_index(request,pk):
     
   context={'form':form}
   return render(request,'app/category/add_category.html',context)
+
+def delete_index(request,pk):
+  category =Category.objects.get(id=pk)
+  context={'category':category}
+  category.delete()
+  redirect('/category/')
+  return render(request,'app/category/index.html')
