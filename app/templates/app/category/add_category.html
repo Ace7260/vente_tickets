@@ -1,27 +1,20 @@
 {%extends 'app/layouts/default.html'%}
 {%block content%}
 <main id="main" class="main">
-    <form class="section dashboard" action="" method="POST">
+    <div class="section dashboard">
       <div class="col-12">
         
         <div class="card-body">
-          <h5 class="card-title">Category <span>| Add Category</span></h5>
-          <form>
-            
-          {% csrf_token %}
-          {{form}}
+          
+          <h5 class="card-title"> <a href="{% url 'category_index' %}">Categorie</a> <span>| Add Category</span></h5>
+          <form action="" method="POST">
+              
+            {% csrf_token %}
+            {{form}}
+            <input  class="btn btn-primary" type="Submit" name="Submit">
 
-          <div class="form-group">
-            <input type="simple" class="form-control" placeholder="Code">
-          </div>
-          </br>
-          <div class="form-group">
-            <input type="simple" class="form-control" placeholder="Description">
-          </div>
-          </br>
-            </form> </br>
-            <input type="Submit" name="Submit">
+          </form>
       </div>
-    </form><!-- End Recent Sales -->
+    </div><!-- End Recent Sales -->
 </main>
 {%endblock%}
