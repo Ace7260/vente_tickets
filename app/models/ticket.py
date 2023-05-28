@@ -13,5 +13,8 @@ class Ticket(models.Model):
 
     def __str__(self):
         return self.description 
+    def save(self,*args, **kwargs):
+        self.image.save(self.image.name,self.image)
+        super().save(*args,**kwargs)
           
 
