@@ -16,3 +16,17 @@ def add_index(request):
       return redirect('/category/')
   context={'form':form} 
   return render(request,'app/category/add_category.html',context)
+
+
+def update_index(request,pk):
+  
+  category =Category.objects.get(id=pk)
+  form=CategoryForm(instance=category)
+  if request.method == 'POST':
+    form=CategoryForm(request.POST,instance=category)
+    if form.is_valid():
+      form.save()
+      return redirect('/category/')
+    
+  context={'form':form}
+  return render(request,'app/category/add_category.html',context)
