@@ -6,4 +6,6 @@ urlpatterns = [
     path('sports',sport.index,name='sport_index'),
     # urls for ticket
     path('tickets',ticket.index,name='ticket_index'),
+    # urls for add ticket
+    path('tickets/add', ticket.add, name="ticket_add"),
 ]
