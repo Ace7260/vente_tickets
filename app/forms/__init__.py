@@ -1,1 +1,1 @@
-from categoryForm import CategoryForm
+from .categoryForm import CategoryForm
