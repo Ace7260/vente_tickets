@@ -9,8 +9,19 @@
           <h5 class="card-title"> <a href="{% url 'category_index' %}">Categorie</a> <span>| Add Category</span></h5>
           <form action="" method="POST">
               
-            {% csrf_token %}
-            {{form}}
+            {% csrf_token %} 
+            <div class="form-group" >
+              <label class="col-sm-1 col-form-label">Code</label>
+              {{form.code}}
+            </div>
+            </br>
+          
+            <div class="form-group" >
+              <label class="col-sm-1 col-form-label">Description</label>
+              {{form.description}}
+            </div>
+            </br>
+          
             <input  class="btn btn-primary" type="Submit" name="Submit">
 
           </form>
