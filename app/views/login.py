@@ -35,4 +35,5 @@ def loginUser(request):
             response.set_cookie('jwt', token)
             return response
         else:
-            messages.error(request, 'Les informations fournies ne sont pas correctes.')
+            messages.error(request, 'username and password incorrect !!!')
+            return redirect('/login')
