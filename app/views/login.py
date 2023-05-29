@@ -4,11 +4,13 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib import messages
 from datetime import datetime, timedelta
-import jwt
-import json
+import jwt, json, os
+from dotenv import load_dotenv
 
-token_key = "SamUelhjihdjighjidhjsshjdf4df56b456dsdnvjbddjdb1d651b5dbvnjshgHVHHjidgd4df54dnhjBHBhjbjkndkn"
+load_dotenv()
 
+
+token_key = os.getenv("TOKEN_KEY")
 
 
 def loginUser(request):
