@@ -24,8 +24,12 @@
                       <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
                       <p class="text-center small">Enter your personal details to create account</p>
                     </div>
+
+                    {% for msg in messages %}
+                      <div class="alert alert-danger w-100">{{ msg }}</div>
+                    {% endfor %}
   
-                    <form class="row g-3 needs-validation" novalidate action="" method="POST">
+                    <form class="row g-3 needs-validation" novalidate action="{% url 'save_user' %}" method="POST">
 
                       {% csrf_token %}
 
