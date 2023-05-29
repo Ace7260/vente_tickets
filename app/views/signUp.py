@@ -17,12 +17,15 @@ def save(request):
         first_name = request.POST.get('first_name')
         email = request.POST.get('email')
         username = request.POST.get('username')
+        if(first_name == "" and last_name == "" and email == "" and username == ""):
+            messages.error(request, "Please fill in all fields !")
+            return redirect('/signUp')
         if(pwd != pwd2):
-            messages.error(request,'Password incorrect')
+            messages.error(request,'Passwords incorrect')
             return redirect('/signUp')
         user = User.objects.create(last_name=last_name, first_name=first_name, username=username, email=email, password=pwd)
         if user :
             return redirect('/login')
         else: 
-            messages.error(request,"erreur d'enregistrement")
+            messages.error(request,"Failed to save")
             return redirect('/signUp')
