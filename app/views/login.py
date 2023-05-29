@@ -18,7 +18,6 @@ def loginUser(request):
         username = request.POST['username']
         password = request.POST['password']
         user = User.objects.filter(username=username, password=password).values()
-        print("USER_DATA : ", user)
         if user:
             user = list(user)
             datauser = {"id" : user[0].get('id'), "username":user[0].get('username'), "exp": (datetime.now() + timedelta(days=3)).timestamp()}
