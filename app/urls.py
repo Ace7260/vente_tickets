@@ -1,7 +1,16 @@
 from django.urls import path
-from app.views import home,sport,ticket,orders,category
+from app.views import home,sport,ticket,orders,category,logout,login, signUp
 urlpatterns = [
     path('',home.index,name='home_index' ),
+    # Auth Paths
+    # ============== login page =============
+    path('login', logout.index, name='login_index'),
+    path('user', login.loginUser, name="login_user"),
+    
+    # ============== signUp page =============
+    path('signUp', signUp.index, name='signUp_index'),
+    path('signUp/user', signUp.save, name='save_user'),
+    
     # Category Paths
     path('category/',category.index,name='category_index' ),
     path('category/add/',category.add_index,name='add_category' ),
@@ -13,5 +22,4 @@ urlpatterns = [
     path('tickets',ticket.index,name='ticket_index'),
     # urls for orders
     path('orders',orders.index,name='orders_index'),
-   
 ]
