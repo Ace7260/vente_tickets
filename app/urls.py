@@ -19,7 +19,7 @@ urlpatterns = [
     # urls for sport
     path('sports',sport.index.as_view(),name='sport_index'),
     path('search/',sport.search,name='search'),
-    path("charge/", sport.charge, name="charge")
+    path("charge/", sport.charge, name="charge"),
     # urls for ticket
     path('tickets',ticket.index,name='ticket_index'),
     # urls for orders
