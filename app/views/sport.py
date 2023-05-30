@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from django.http import request,HttpResponse
+import stripe
 from app.models import Ticket,Category
 from django.conf import settings
 from django.views.generic.base import TemplateView
+
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 class index(TemplateView):
     template_name = 'app/sports/index.html'
     def get_context_data(self, **kwargs):
@@ -24,3 +28,9 @@ def search(request):
         tickets = Ticket.objects.all()
         return render(request, 'app/sports/index.html', {'categories': categories, 'tickets': tickets})
     
+def charge(request):
+    if request.method =='POST':
+        charge = stripe.Charge.create(
+            amount=int(request.POST['amount']),
+
+        )
