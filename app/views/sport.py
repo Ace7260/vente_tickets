@@ -32,5 +32,8 @@ def charge(request):
     if request.method =='POST':
         charge = stripe.Charge.create(
             amount=int(request.POST['amount']),
-
+            currency='usd',
+            description='AceShop Charge',
+            source=request.POST['stripeToken']
         )
+        return render(request,'app/sports/charge.html')
