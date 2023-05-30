@@ -1,19 +1,15 @@
 from django.shortcuts import render
 from django.http import request,HttpResponse
 from app.models import Ticket,Category
-
-def index(request):
-    tickets=Ticket.objects.all()
-    categories=Category.objects.all()
+from django.conf import settings
+from django.views.generic.base import TemplateView
+class index(TemplateView):
+    template_name = 'app/sports/index.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["key"] = settings.STRIPE_PUBLISHABLE_KEY
+        return context
     
-    return render(
-        request,
-        'app/sports/index.html',
-        {
-            'tickets':tickets,
-            'categories':categories
-        }
-    )
 def search(request):
     search_query = request.GET.get('q')
     if search_query:
@@ -27,3 +23,4 @@ def search(request):
         categories = Category.objects.all()
         tickets = Ticket.objects.all()
         return render(request, 'app/sports/index.html', {'categories': categories, 'tickets': tickets})
+    
