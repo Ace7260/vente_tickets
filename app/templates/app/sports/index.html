@@ -31,25 +31,30 @@
                 <div class="d-flex align-items-center justify-content-center">
                 <div class="ps-3">
                   <h6>Lieu  {{ticket.place}}</h6>
-                  <span class="text-success small pt-1 fw-bold">prix</span> <span class="text-muted small pt-2 ps-1">{{ticket.price|floatformat:2}}
+                  <span class="text-success small pt-1 fw-bold">Date</span> <span class="text-muted small pt-2 ps-1">26/3/2025
                        <strong>fbu</strong>
                   </span>
               </div>
-                  <div class="ps-3">
-                      <span class="text-success small pt-1 fw-bold">Date</span> <span class="text-muted small pt-2 ps-1">26/3/2025
-                      </span>
-                    </div>
               </div>
               </div>
              <br>    
              <div>
-               <div id="paypal-payment-button"></div>
-           <button class="btn btn-outline-secondary add-btn update-panier" data-produit={{ticket.pk}} data-action="add">
+               {% comment %} <div id="paypal-payment-button"></div> {% endcomment %}
+           {% comment %} <button class="btn btn-outline-secondary add-btn update-panier" data-produit={{ticket.pk}} data-action="add">
                 Acheter</button>
-            </div>
+            </div> {% endcomment %}
           </div>
-        {% comment %} </div> {% endcomment %}
-      {% endfor %}
+          <h3>Buy for {{ticket.price}} fbu</h3>
+          <form  action="{% url 'charge' %}" method="post">
+            {% csrf_token %}
+          <script src='https://checkout.stripe.com/checkout.js' class='stripe-button'>
+            data-key={{key}}
+            data-description='payment Gateway'
+            data-amount='500'
+            data-locale="auto"
+          </script>
+        </form>
+          {% endfor %}
       <!-- fin -->
   {% else %}
   <p>No tickets found.</p>
