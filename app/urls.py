@@ -17,8 +17,9 @@ urlpatterns = [
     path('category/update/<str:pk>',category.update_index,name='update_category'), 
     path('category/delete/<str:pk>',category.delete_index,name='delete_category'),  
     # urls for sport
-    path('sports',sport.index,name='sport_index'),
+    path('sports',sport.index.as_view(),name='sport_index'),
     path('search/',sport.search,name='search'),
+    path("charge/", sport.charge, name="charge")
     # urls for ticket
     path('tickets',ticket.index,name='ticket_index'),
     # urls for orders
