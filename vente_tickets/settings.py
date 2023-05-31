@@ -134,3 +134,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 
 STRIPE_SECRET_KEY= 'sk_test_51NDWYwLktzltd7G215W1oh8aLNt3LjqIPkUvUQpv1EgpnvOtJmsRoSMawyojJ190E7uKdxsDinHhMSOADXBFB9ZM00jth1Koxu'
 STRIPE_PUBLISHABLE_KEY='pk_test_51NDWYwLktzltd7G2WZFOwVMQF7y2FB7qjzWkSdxRmpGJc8XFJQqCqErkNjUx4Rt3juibQ3TBCK5rgiPvohqoWYcj00FEmOXbWY'
+LOGIN_URL ='/login/'
+# LOGOUT_URL ='/deconnect/'

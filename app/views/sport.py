@@ -13,6 +13,12 @@ class index(TemplateView):
         context = super().get_context_data(**kwargs)
         context["key"] = settings.STRIPE_PUBLISHABLE_KEY
         return context
+from django.contrib.auth.decorators import login_required
+
+@login_required(login_url='login_index')
+def index(request):
+    tickets=Ticket.objects.all()
+    categories=Category.objects.all()
     
 def search(request):
     search_query = request.GET.get('q')
