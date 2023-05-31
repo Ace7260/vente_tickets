@@ -6,6 +6,7 @@ urlpatterns = [
     # ============== login page =============
     path('login', logout.index, name='login_index'),
     path('user', login.loginUser, name="login_user"),
+    path('logout/', logout.logout, name='logout'),
     
     # ============== signUp page =============
     path('signUp', signUp.index, name='signUp_index'),
