@@ -1,12 +1,12 @@
 from django.urls import path
-from app.views import home,sport,ticket,orders,category,logout,login, signUp
+from app.views import home,sport,ticket,orders,category,logout_,login, signUp
 urlpatterns = [
     path('',home.index,name='home_index' ),
     # Auth Paths
     # ============== login page =============
-    path('login', logout.index, name='login_index'),
+    path('login', logout_.index, name='login_index'),
     path('user', login.loginUser, name="login_user"),
-    path('logout/', logout.logout, name='logout'),
+    path('logout/', logout_.logout__, name='logout__'),
     
     # ============== signUp page =============
     path('signUp', signUp.index, name='signUp_index'),
