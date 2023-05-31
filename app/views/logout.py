@@ -12,3 +12,6 @@ def index(request):
   )
   response.delete_cookie('jwt')
   return response
+def logout(request):
+	logout(request)
+	return redirect('login_index')
