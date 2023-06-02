@@ -1,0 +1,31 @@
+{%extends 'app/layouts/default.html'%}
+{%block content%}
+<main id="main" class="main">
+    <div class="section dashboard">
+      <div class="col-12">
+        
+        <div class="card-body">
+          
+          <h5 class="card-title"> <a href="{% url 'category_index' %}">Categorie</a> <span>| Add Category</span></h5>
+          <form action="" method="POST">
+              
+            {% csrf_token %} 
+            <div class="form-group" >
+              <label class="col-sm-1 col-form-label">Code</label>
+              {{form.code}}
+            </div>
+            </br>
+          
+            <div class="form-group" >
+              <label class="col-sm-1 col-form-label">Description</label>
+              {{form.description}}
+            </div>
+            </br>
+            
+            <Button  class="btn btn-primary" type="Submit">Save</Button>
+
+          </form>
+      </div>
+    </div><!-- End Recent Sales -->
+</main>
+{%endblock%}
