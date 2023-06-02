@@ -21,7 +21,7 @@ def loginUser(request):
         if user:
             user = list(user)
             datauser = {"id" : user[0].get('id'), "username":user[0].get('username'), "exp": (datetime.now() + timedelta(days=3)).timestamp()}
-            token = jwt.encode(datauser, token_key, algorithm='HS256')
+            # token = jwt.encode(datauser, token_key, algorithm='HS256')
             response = HttpResponse(
                 render(
                     request, 
@@ -31,7 +31,7 @@ def loginUser(request):
                     }
                 )
             )
-            response.set_cookie('jwt', token)
+            # response.set_cookie('jwt', token)
             return response
         else:
             messages.error(request, 'username and password incorrect !!!')
