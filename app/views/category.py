@@ -4,11 +4,11 @@ from app.models.category import Category
 from app.forms.categoryForm import CategoryForm
 from django.contrib.auth.decorators import login_required
 
-@login_required(login_url='login_index')
+# @login_required(login_url='login_index')
 def index(request):
   categories= Category.objects.all()
   return render(request,'app/category/index.html',{'categories':categories})
-@login_required(login_url='login_index')
+# @login_required(login_url='login_index')
 def add_index(request):
   form=CategoryForm()
   if request.method == 'POST':
@@ -19,7 +19,7 @@ def add_index(request):
   context={'form':form} 
   return render(request,'app/category/add_category.html',context)
 
-@login_required(login_url='login_index')
+# @login_required(login_url='login_index')
 def update_index(request,pk):
   
   category =Category.objects.get(id=pk)
@@ -32,7 +32,7 @@ def update_index(request,pk):
     
   context={'form':form}
   return render(request,'app/category/add_category.html',context)
-@login_required(login_url='login_index')
+# @login_required(login_url='login_index')
 def delete_index(request,pk):
   category =Category.objects.get(id=pk)
   context={'category':category}

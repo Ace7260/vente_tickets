@@ -9,7 +9,7 @@ from django.utils.decorators import method_decorator
 
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
-@method_decorator(login_required(login_url='login_index'), name='dispatch')
+# @method_decorator(login_required(login_url='sport_index'), name='dispatch')
 class index(TemplateView):
     template_name = 'app/sports/index.html'
     def get_context_data(self, **kwargs):
@@ -21,7 +21,7 @@ class index(TemplateView):
 # def index(request):
 #     tickets=Ticket.objects.all()
 #     categories=Category.objects.all()
-@login_required(login_url='login_index')
+# @login_required(login_url='search')
 def search(request):
     search_query = request.GET.get('q')
     if search_query:
@@ -35,7 +35,7 @@ def search(request):
         categories = Category.objects.all()
         tickets = Ticket.objects.all()
         return render(request, 'app/sports/index.html', {'categories': categories, 'tickets': tickets})
-@login_required(login_url='login_index')   
+# @login_required(login_url='charge')   
 def charge(request):
     if request.method =='POST':
         charge = stripe.Charge.create(
