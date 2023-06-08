@@ -1,0 +1,40 @@
+{% extends "app/layouts/default.html" %}
+
+{% load static %}
+
+{% block content %}
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Sell your ticket</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+        <li class="breadcrumb-item">Tickets</li>
+        <li class="breadcrumb-item active">Sell</li>
+      </ol>
+    </nav>
+    <div class="container">
+
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <a href="{% url 'ticket_index'%}" class="btn btn-primary mt-2">Back</a>
+          <div class="card m-3" style="width: 25rem;">
+            <img src="{{eachticket.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title m-1"><b>Description:</b>{{eachticket.description}}</h5>
+                <h4 class="card-subtitle"><b></b>{{eachticket.place}}</h4>
+                <p class="card-text"><b>Price:</b>{{eachticket.price}}</p>
+                <p class="card-text mt-1"><b>Added date:</b>{{eachticket.date_ajout}}</p>
+                <p class="card-text mt-2"><b>Expiration date:</b>{{eachticket.expiration}}</p>
+                <p class="card-text mt-3"><b>Category:</b>{{eachticket.categorie.description}}</p>
+                <a href="{% url 'ticket_delete' eachticket.id %}" class="btn btn-danger m-1">Delete</a>
+                <a href="{% url 'ticket_edit' eachticket.id %}" class="btn btn-primary m-1">Edit</a>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main> 
+{% endblock content %}
