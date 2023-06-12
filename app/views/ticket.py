@@ -52,4 +52,4 @@ def editTicket(request, pk):
 def deleteTicket(request, pk):
     ticket = Ticket.objects.get(id=pk)
     ticket.delete()
-    return render(request, 'ticket_index')
+    return redirect('ticket_index')
