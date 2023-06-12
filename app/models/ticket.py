@@ -8,7 +8,7 @@ class Ticket(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image=models.ImageField( upload_to='images/tickets/', height_field=None, width_field=None, max_length=None)
     status=models.BooleanField()
-    date_ajout = models.DateTimeField(default=timezone.now,auto_now=True,auto_now_add=True)
+    date_ajout = models.DateTimeField(default=timezone.now,auto_now=False,auto_now_add=False)
     expiration = models.DateTimeField(auto_now=False,auto_now_add=False)
 
     # def __str__(self):

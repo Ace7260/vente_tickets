@@ -45,8 +45,8 @@ def charge(request):
             source=request.POST['stripeToken']
         )
         return render(request,'app/sports/charge.html')
-from django.http import request
-from app.models import Ticket,Category
+# from django.http import request
+# from app.models import Ticket,Category
 
 def index(request):
     tickets=Ticket.objects.all()
