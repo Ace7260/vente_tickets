@@ -27,6 +27,7 @@
                 <p class="card-text mt-1"><b>Added date:</b>{{eachticket.date_ajout}}</p>
                 <p class="card-text mt-2"><b>Expiration date:</b>{{eachticket.expiration}}</p>
                 <p class="card-text mt-3"><b>Category:</b>{{eachticket.categorie.description}}</p>
+                <p class="card-text mt-3"><b>Status:</b>{{eachticket.status}}</p>
                 <a href="{% url 'ticket_delete' eachticket.id %}" class="btn btn-danger m-1">Delete</a>
                 <a href="{% url 'ticket_edit' eachticket.id %}" class="btn btn-primary m-1">Edit</a>
             </div>

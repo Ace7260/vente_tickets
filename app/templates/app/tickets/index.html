@@ -27,17 +27,10 @@
                   <h5 class="card-title m-1"><b>Description: </b>{{ticket.description}}</h5>
                   <h4 class="card-subtitle"><b>Place: </b>{{ticket.place}}</h4>
                   <p class="card-text"><b>Price: </b>{{ticket.price}}</p>
-                  <small>{{ticket.image.url}}</small>
                   <p class="card-text mt-1"><b>Added date: </b>{{ticket.date_ajout}}</p>
                   <p class="card-text mt-2"><b>Expiration date: </b>{{ticket.expiration}}</p>
                   <p class="card-text mt-3"><b>Category: </b>{{ticket.categorie.description}}</p>
-                  
-                  {% if ticket.status %}
-                      <p class="card-text mt-3"><b>Status: </b><span class="badge badge-success">Available</span>
-                  {% else %}
-                      <p class="card-text mt-3"><b>Status: </b><span class="badge badge-dark">Not avaible</span>
-                  {% endif %}
-                  </p>
+                  <p class="card-text mt-3"><b>Status: </b>{{ticket.status}}</p>
                   <a href="{% url 'ticket_detail' ticket.pk %}" class="btn btn-primary mt-2">Detail</a>
                 </div>
               </div>
