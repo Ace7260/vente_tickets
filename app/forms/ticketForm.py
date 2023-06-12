@@ -11,6 +11,6 @@ class TicketForm(forms.ModelForm):
           'place': forms.TextInput(attrs={'class': 'form-control'}),
           'price': forms.TextInput(attrs={'class': 'form-control'}),
           'image': forms.FileInput(attrs={'class': 'form-control'}),
-          'status': forms.CheckboxInput(attrs={'class': 'form-control'}),
+          'status': forms.CheckboxInput(attrs={'class': 'checkbox'}),
           'expiration': forms.DateTimeInput(attrs={'class': 'form-control'}),
         }
