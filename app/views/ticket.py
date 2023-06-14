@@ -3,6 +3,7 @@ from django.http import request,HttpRequest
 from app.models import Ticket,Category
 from app.forms import TicketForm
 
+# @login_required(login_url='login_index')
 def index(request):
     tickets = Ticket.objects.all()
   
@@ -52,4 +53,4 @@ def editTicket(request, pk):
 def deleteTicket(request, pk):
     ticket = Ticket.objects.get(id=pk)
     ticket.delete()
-    return render(request, 'ticket_index')
+    return redirect('ticket_index')
