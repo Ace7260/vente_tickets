@@ -35,7 +35,5 @@ def update_index(request,pk):
 
 def delete_index(request,pk):
   category =Category.objects.get(id=pk)
-  context={'category':category}
   category.delete()
-  redirect('/category/')
-  return render(request,'app/category/index.html')
+  return redirect('category_index')
