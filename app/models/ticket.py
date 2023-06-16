@@ -6,15 +6,15 @@ class Ticket(models.Model):
     description = models.CharField(max_length=100, null=True)
     place = models.CharField(max_length=100, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    image=models.ImageField( upload_to='tickets', height_field=None, width_field=None, max_length=None)
+    image=models.ImageField( upload_to='images/tickets/', height_field=None, width_field=None, max_length=None)
     status=models.BooleanField()
-    date_ajout = models.DateTimeField(default=timezone.now)
+    date_ajout = models.DateTimeField(default=timezone.now,auto_now=False,auto_now_add=False)
     expiration = models.DateTimeField(auto_now=False,auto_now_add=False)
 
-    def __str__(self):
-        return self.description 
-    def save(self,*args, **kwargs):
-        self.image.save(self.image.name,self.image)
-        super().save(*args,**kwargs)
+    # def __str__(self):
+    #     return f"{self.description} {self.description}"
+    # def save(self,*args, **kwargs):
+    #     self.image.save(self.image.name,self.image)
+    #     super().save(*args,**kwargs)
           
 
