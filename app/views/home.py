@@ -3,6 +3,9 @@ from django.http import request
 import jwt, json, os
 from dotenv import load_dotenv
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+from django.views.generic import TemplateView
+from app.models import User
 
 load_dotenv()
 

@@ -4,6 +4,7 @@ from django.conf import settings
 from django.urls import path
 from django.urls import path
 from app.views import home,sport,ticket,orders,category,logout_,login, signUp
+from app.views import home,sport,ticket
 urlpatterns = [
     path('',home.index,name='home_index' ),
     # Auth Paths
@@ -41,4 +42,3 @@ urlpatterns = [
     path('tickets/delete/<int:pk>', ticket.deleteTicket, name="ticket_delete"),
     
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
-
