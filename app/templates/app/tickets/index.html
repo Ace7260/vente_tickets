@@ -1,0 +1,60 @@
+{% extends "app/layouts/default.html" %} {% load static %} {% block content %}
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Sell your ticket</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+        <li class="breadcrumb-item">Tickets</li>
+        <li class="breadcrumb-item active">Sell</li>
+      </ol>
+    </nav>
+    <div class="container">
+      <div class="row justify-content-center">
+        {% if tickets %} {% for ticket in tickets %}
+
+        <div class="col-md-3">
+          <div class="card m-3" style="width: 18rem">
+            <img src="{{ticket.image.url}}" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title m-1">
+                <b>Description: </b>{{ticket.description}}
+              </h5>
+              <h4 class="card-subtitle"><b>Place: </b>{{ticket.place}}</h4>
+              <p class="card-text"><b>Price: </b>{{ticket.price}}</p>
+              <p class="card-text mt-1">
+                <b>Added date: </b>{{ticket.date_ajout}}
+              </p>
+              <p class="card-text mt-2">
+                <b>Expiration date: </b>{{ticket.expiration}}
+              </p>
+              <p class="card-text mt-3">
+                <b>Category: </b>{{ticket.categorie.description}}
+              </p>
+
+              {% if ticket.status %}
+              <p class="card-text mt-3">
+                <span class="badge badge-success">Available</span> {% else %}
+              </p>
+
+              <p class="card-text mt-3">
+                <span class="badge badge-dark">Not avaible</span>
+                {% endif %}
+              </p>
+              <a
+                href="{% url 'ticket_detail' ticket.pk %}"
+                class="btn btn-primary mt-2"
+                >Detail</a
+              >
+            </div>
+          </div>
+        </div>
+
+        {% endfor %} {% else %}
+        <p>No Tickets sold....</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock content %}

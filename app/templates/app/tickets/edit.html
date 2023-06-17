@@ -1,0 +1,32 @@
+{% extends 'app/layouts/default.html' %}
+
+{% block content %}
+
+     
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Sell your ticket</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+        <li class="breadcrumb-item">Tickets</li>
+        <li class="breadcrumb-item active">Sell</li>
+      </ol>
+    </nav>  
+    <h2>Edit Ticket</h2>
+       <div class="container m-1">
+          <div class="row justify-content-center">
+             <div class="col">
+               <form action="" method="post" enctype="multipart/form-data">
+          
+                 {% csrf_token %}
+                 {{form.as_p}}   
+                 <button type="submit" class="btn btn-success btn-block mb-4">Submit</button>
+                </form>
+             </div> 
+           </div>
+       </div> 
+  </div>
+</main> 
+
+{% endblock content %}
