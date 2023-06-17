@@ -31,7 +31,7 @@ def loginUser(request):
                     }
                 )
             )
-            # response.set_cookie('jwt', token)
+              # response.set_cookie('jwt', token)
             return response
         else:
             messages.error(request, 'username and password incorrect !!!')
