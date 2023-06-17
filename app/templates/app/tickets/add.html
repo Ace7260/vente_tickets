@@ -13,14 +13,18 @@
       </ol>
     </nav>  
     <h2>Add Ticket</h2>
-       <div class="container m-5">
-         <form action="" method="post" enctype="multipart/form-data">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col m-6">
+             <form action="" method="post" enctype="multipart/form-data">
           
-             {% csrf_token %}
-             {{form.as_p}}
-             <button type="submit" class="btn btn-success btn-block mb-4" href="{% url 'ticket_index' %}">Submit</button>
-         </form>
-       </div> 
+               {% csrf_token %}
+               {{form.as_p}}
+               <button type="submit" class="btn btn-success btn-block mb-4" href="{% url 'ticket_index' %}">Submit</button>
+              </form>
+            </div> 
+          </div>
+        </div>
   </div>
 </main>
 
