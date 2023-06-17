@@ -18,10 +18,9 @@
   <div class="col-xxl-12 col-md-4 d-flex justify-content-center w-100 p-3 flex-wrap gap-3">
   {% if tickets %}
    <!-- debut -->
-        <!-- <div class="col-xxl-4 col-md-4"> -->
-          {% for ticket in tickets  %}
+   {% for ticket in tickets  %}
           <div class="card info-card sales-card">
-            <div class="card-body">
+            <div class="card-body m-5 border-bottom">
               <h5 class="card-title">{{ticket.description}} </span></h5>
 
               <div class="d-flex align-items-center">
@@ -34,16 +33,15 @@
                   <span class="text-success small pt-1 fw-bold">Date</span> <span class="text-muted small pt-2 ps-1">26/3/2025
                        <strong>fbu</strong>
                   </span>
-              </div>
-              </div>
+                </div>
+                </div>
               </div>
              <br>    
-             <div>
                {% comment %} <div id="paypal-payment-button"></div> {% endcomment %}
            {% comment %} <button class="btn btn-outline-secondary add-btn update-panier" data-produit={{ticket.pk}} data-action="add">
                 Acheter</button>
-            </div> {% endcomment %}
-          </div>
+            {% endcomment %}
+         
           <h3>Buy for {{ticket.price}} fbu</h3>
           <form  action="{% url 'charge' %}" method="post">
             {% csrf_token %}
@@ -54,6 +52,8 @@
             data-locale="auto"
           </script>
         </form>
+      </div>
+      </div>
           {% endfor %}
       <!-- fin -->
   {% else %}
