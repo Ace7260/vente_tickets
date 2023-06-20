@@ -14,10 +14,8 @@ token_key = os.getenv("TOKEN_KEY")
 
 @login_required(login_url='login_index')
 def index(request):
-  if "jwt" in request.COOKIES.keys():
-    return render(
+  
+     return render(
       request,
       'app/home/index.html'
     )
-  else:
-    return redirect('/login')
