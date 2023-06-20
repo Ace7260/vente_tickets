@@ -3,14 +3,14 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.urls import path
 from django.urls import path
-from app.views import home,sport,ticket,orders,category,logout_,login, signUp
+from app.views import home,sport,ticket,orders,category,logout_,login_, signUp
 from app.views import home,sport,ticket
 urlpatterns = [
-    path('',home.index,name='home_index' ),
+    path('home/',home.index,name='home_index' ),
     # Auth Paths
     # ============== login page =============
     path('login', logout_.index, name='login_index'),
-    path('user', login.loginUser, name="login_user"),
+    path('user/', login_.loginUser, name="login_user"),
     path('logout/', logout_.logout__, name='logout__'),
     
     # ============== signUp page =============
