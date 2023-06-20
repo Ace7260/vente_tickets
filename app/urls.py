@@ -6,7 +6,7 @@ from django.urls import path
 from app.views import home,sport,ticket,orders,category,logout_,login_, signUp
 from app.views import home,sport,ticket
 urlpatterns = [
-    path('home/',home.index,name='home_index' ),
+    path('home',home.index,name='home_index' ),
     # Auth Paths
     # ============== login page =============
     path('login', logout_.index, name='login_index'),
