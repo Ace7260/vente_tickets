@@ -24,5 +24,5 @@ def save(request):
             # group = Group.objects.get(name = 'employees')
             # user.groups.add(group)    
             messages.success(request, 'Le compte de '+username+' a été ajouté')
-            return redirect('')
+            return redirect('/login')
         return redirect('/signUp')
