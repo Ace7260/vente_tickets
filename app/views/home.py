@@ -25,3 +25,7 @@ def index(request):
       request,
       'app/home/index.html',context
     )
+def come(request):
+  return render(
+      request,'app/home/comming.html'
+    )
