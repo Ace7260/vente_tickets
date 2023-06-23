@@ -42,4 +42,6 @@ urlpatterns = [
     # urls to delete ticket
     path('tickets/delete/<int:pk>', ticket.deleteTicket, name="ticket_delete"),
     
+    path('comming', home.come, name="home_come"),
+    
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
