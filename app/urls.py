@@ -9,6 +9,7 @@ urlpatterns = [
     path('home',home.index,name='home_index' ),
     # Auth Paths
     # ============== login page =============
+    path('', logout_.index, name='login_index'),
     path('login', logout_.index, name='login_index'),
     path('user/', login_.loginUser, name="login_user"),
     path('logout/', logout_.logout__, name='logout__'),
