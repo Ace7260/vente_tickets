@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- head -->
+{% include 'app/partials/head.html' %}
+<body>
+
+  <!-- ======= Header ======= -->
+  {% include 'app/partials/nav.html' %}
+ <!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  {% include 'app/partials/sidebar.html' %}
+  <!-- End Sidebar-->
+
+  <!-- End #main -->
+
+{% block content %}
+  
+{% endblock content %}
+  
+  <!-- ======= Footer ======= -->
+  {% include 'app/partials/footer.html' %}
+  <!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  {% load static %}
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'app/assets/vendor/apexcharts/apexcharts.min.js'%}"></script>
+  <script src="{% static 'app/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{% static 'app/vendor/chart.js/chart.umd.js'%}"></script>
+  <script src="{% static 'app/vendor/echarts/echarts.min.js'%}"></script>
+  <script src="{% static 'app/vendor/quill/quill.min.js'%}"></script>
+  <script src="{% static 'app/vendor/simple-datatables/simple-datatables.js'%}"></script>
+  <script src="{% static 'app/vendor/tinymce/tinymce.min.js'%}"></script>
+  <script src="{% static 'app/vendor/php-email-form/validate.js'%}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'app/js/main.js'%}"></script>
+
+</body>
+
+</html>

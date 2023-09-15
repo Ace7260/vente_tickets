@@ -1,0 +1,66 @@
+{% extends "app/layouts/default.html" %}
+
+{% load static %}
+
+{% block content %}
+<main id="main" class="main">
+  <div class="col-xxl-12 col-md-4 d-flex justify-content-space-betteewn">
+    <form method="get" action="{% url 'search' %}" style='display:flex;justify-content:center;align-items:center;gap:30px;flex-direction:row'>
+      {% for category in categories%} 
+      <div style='display:flex;justify-content:center;align-items:center;gap:50px;flex-direction:row'>
+        <input type="radio" id="{{category.id}}" name="q" value="{{category.description}}">
+        <label for="{{category.id}}" style='width:50px'>{{category.description}}</label><br><br>
+      </div>
+      {% endfor %}
+      <button type="submit" class='btn btn-success'>Search</button>
+      </form>
+  </div>
+  <div class="col-xxl-12 col-md-4 d-flex justify-content-center w-100 p-3 flex-wrap gap-3">
+  {% if tickets %}
+   <!-- debut -->
+   {% for ticket in tickets  %}
+          <div class="card info-card sales-card">
+            <div class="card-body m-5 border-bottom">
+              <h5 class="card-title">{{ticket.description}} </span></h5>
+
+              <div class="d-flex align-items-center">
+                <!-- <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                  <i class="bi bi-cart"></i>
+                </div> -->
+                <div class="d-flex align-items-center justify-content-center">
+                <div class="ps-3">
+                  <h6>Lieu  {{ticket.place}}</h6>
+                  <span class="text-success small pt-1 fw-bold">Date</span> <span class="text-muted small pt-2 ps-1">26/3/2025
+                       <strong>fbu</strong>
+                  </span>
+                </div>
+                </div>
+              </div>
+             <br>    
+               {% comment %} <div id="paypal-payment-button"></div> {% endcomment %}
+           {% comment %} <button class="btn btn-outline-secondary add-btn update-panier" data-produit={{ticket.pk}} data-action="add">
+                Acheter</button>
+            {% endcomment %}
+         
+          <h3>Buy for {{ticket.price}} fbu</h3>
+          <form  action="{% url 'charge' %}" method="post">
+            {% csrf_token %}
+          <script src='https://checkout.stripe.com/checkout.js' class='stripe-button'>
+            data-key={{key}}
+            data-description='payment Gateway'
+            data-amount='500'
+            data-locale="auto"
+          </script>
+        </form>
+      </div>
+      </div>
+          {% endfor %}
+      <!-- fin -->
+  {% else %}
+  <p>No tickets found.</p>
+{% endif %}
+    </div>
+
+</main>
+
+{% endblock content %}
